@@ -13,7 +13,7 @@ import MethodCategory from 'components/method-category'
 
 import { styleByLevelNormal, textStyle } from './functions'
 import styles from './styles'
-import { MethodType } from 'utils/types'
+import { MethodType } from 'utils/typings/types'
 import { LibraryContext } from 'utils/context/libraryContext'
 
 export interface SidebarElement {

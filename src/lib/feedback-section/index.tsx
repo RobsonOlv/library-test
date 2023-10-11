@@ -7,6 +7,7 @@ import { setButtonStyle } from './functions'
 import FeedbackModal, { ModalProps } from 'components/feedback-modal'
 
 import styles from './styles'
+import { getMessages } from 'utils/get-message'
 
 interface DocPath {
   slug?: string
@@ -21,6 +22,7 @@ const FeedbackSection = ({
   suggestEdits = true,
   sendFeedback,
 }: DocPath) => {
+  const messages = getMessages()
   const [feedback, changeFeedback] = useState<boolean | undefined>(undefined)
   const [prevSlug, setPrevSlug] = useState(slug)
   const [modalState, changeModalState] = useState<ModalProps>({
@@ -46,8 +48,8 @@ const FeedbackSection = ({
     <Flex sx={styles.container} data-cy="feedback-section">
       <Text sx={styles.question}>
         {feedback !== undefined
-          ? 'Thanks for your feedback.'
-          : 'Was this helpful?'}
+          ? messages['feedback_section.response']
+          : messages['feedback_section.question']}
       </Text>
       <Flex sx={styles.likeContainer}>
         <Flex
@@ -61,7 +63,7 @@ const FeedbackSection = ({
           ) : (
             <LikeSelectedIcon size={24} sx={styles.likeIcon} />
           )}
-          <Text>Yes</Text>
+          <Text>{messages['feedback_section.positive']}</Text>
         </Flex>
         <Flex
           ref={dislikeButton}
@@ -73,7 +75,7 @@ const FeedbackSection = ({
           ) : (
             <LikeSelectedIcon size={24} sx={styles.dislikeIcon} />
           )}
-          <Text>No</Text>
+          <Text>{messages['feedback_section.negative']}</Text>
         </Flex>
       </Flex>
       {suggestEdits && (
@@ -84,7 +86,7 @@ const FeedbackSection = ({
           sx={styles.editContainer}
         >
           <EditIcon size={24} sx={styles.editIcon} />
-          <Text>Suggest edits (Github)</Text>
+          <Text>{messages['feedback_section.edit']}</Text>
         </Link>
       )}
       {modalState.modalOpen ? (

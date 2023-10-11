@@ -4,7 +4,7 @@ import { Box, Flex, Text } from '@vtex/brand-ui'
 import styles from './styles'
 import { cardContainer, cardTitle, titleContainer } from './functions'
 import { MouseEventHandler } from 'react'
-import { DataElement } from 'utils/types'
+import { DataElement } from 'utils/typings/types'
 
 export interface DocumentProps extends DataElement {
   title: string

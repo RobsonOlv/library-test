@@ -3,7 +3,7 @@ import MethodCategory from 'components/method-category'
 import { Dispatch, SetStateAction, useState } from 'react'
 
 import styles from './styles'
-import { MethodType } from 'utils/types'
+import { MethodType } from 'utils/typings/types'
 
 type MethodFilter = {
   name: string

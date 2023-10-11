@@ -22,7 +22,7 @@ import AnnouncementBar, {
 import styles from './styles'
 import { LibraryContext } from 'utils/context/libraryContext'
 import HamburgerMenu from 'lib/hamburger-menu'
-import { Section } from 'utils/types'
+import { Section } from 'utils/typings/types'
 import SearchInput from 'components/search-input'
 
 interface Props {

@@ -5,7 +5,7 @@ import Link from 'next/link.js'
 import styles from './styles'
 import { iconTooltipStyle } from './functions'
 
-import { Section } from 'utils/types'
+import { Section } from 'utils/typings/types'
 import Tooltip from 'components/tooltip'
 import { updateOpenPage } from 'utils/sidebar-utils'
 import SidebarSection, { SidebarSectionProps } from 'components/sidebar-section'

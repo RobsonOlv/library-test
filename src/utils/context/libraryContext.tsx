@@ -1,7 +1,7 @@
 import type { Dispatch, ReactNode, SetStateAction } from 'react'
 import { createContext, useEffect, useState } from 'react'
 import { Item } from 'lib/table-of-contents/TableOfContents.types'
-import { Section } from 'utils/types'
+import { Section } from 'utils/typings/types'
 import { SWRConfig } from 'swr'
 
 interface Props extends Partial<ContextType> {
@@ -11,7 +11,7 @@ interface Props extends Partial<ContextType> {
   sections: Section[][]
   isPreview: boolean
   sectionSelected: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  locale?: 'en' | 'pt' | 'es'
 }
 
 export type ContextType = {
@@ -39,7 +39,7 @@ export type ContextType = {
   closeSidebarElements: (parentsArray: string[]) => void
   sidebarSections: Section[][]
   setSidebarSections: Dispatch<SetStateAction<Section[][]>>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  locale: 'en' | 'pt' | 'es'
 }
 
 type ActiveItem = {
@@ -74,6 +74,7 @@ export const LibraryContext = createContext<ContextType>({
   closeSidebarElements: () => undefined,
   sidebarSections: [],
   setSidebarSections: () => undefined,
+  locale: 'en',
 })
 
 const LibraryContextProvider = ({ children, ...props }: Props) => {
@@ -92,6 +93,7 @@ const LibraryContextProvider = ({ children, ...props }: Props) => {
   const [sidebarDataMaster, setSidebarDataMaster] = useState(props.fallback)
   const [isEditorPreview, setIsEditorPreview] = useState(props.isPreview)
   const [sidebarSections, setSidebarSections] = useState(props.sections)
+  const locale = 'en'
 
   useEffect(() => {
     setSidebarDataMaster(props.fallback)
@@ -191,6 +193,7 @@ const LibraryContextProvider = ({ children, ...props }: Props) => {
         setSidebarDataMaster,
         sidebarSections,
         setSidebarSections,
+        locale,
         ...props,
       }}
     >

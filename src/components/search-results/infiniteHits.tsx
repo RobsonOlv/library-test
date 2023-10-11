@@ -11,7 +11,7 @@ import {
 import SearchCard from 'components/search-card'
 import { ActionType, getIcon, getRelativeURL } from 'utils/search-utils'
 import { Box, Flex } from '@vtex/brand-ui'
-import { MethodType } from 'utils/types'
+import { MethodType } from 'utils/typings/types'
 import { SearchContext } from 'utils/context/search'
 
 export type FilteredHit = Hit & { filteredMatches?: Hit[] }

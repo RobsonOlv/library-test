@@ -1,0 +1,9 @@
+{
+  "feedback_section.question": "Was this helpful?",
+  "feedback_section.response": "Thanks for your feedback.",
+  "feedback_section.positive": "Yes",
+  "feedback_section.negative": "No",
+  "feedback_section.edit": "Suggest edits (Github)",
+  "feedback_modal.title": "Leave a comment (optional)",
+  "feedback_modal.button": "Send Feedback"
+}

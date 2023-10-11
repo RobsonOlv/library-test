@@ -1,6 +1,6 @@
 import { Box } from '@vtex/brand-ui'
 import DocumentationCard from 'components/documentation-card'
-import { Section } from 'utils/types'
+import { Section } from 'utils/typings/types'
 import styles from './styles'
 
 interface Props {

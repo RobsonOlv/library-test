@@ -2,7 +2,7 @@ import { Flex, Text, SxStyleProp } from '@vtex/brand-ui'
 import { categoryStyle, categoryText, closeCategoryStyle } from './functions'
 import styles from './styles'
 import CloseFilterIcon from 'components/icons/close-filter-icon'
-import { MethodType } from 'utils/types'
+import { MethodType } from 'utils/typings/types'
 
 export interface MethodCategoryProps {
   method: MethodType
