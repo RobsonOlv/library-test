@@ -5,5 +5,10 @@
   "feedback_section.negative": "No",
   "feedback_section.edit": "Sugerir cambios (Github)",
   "feedback_modal.title": "Dejar un comentario (opcional)",
-  "feedback_modal.button": "Enviar feedback"
+  "feedback_modal.button": "Enviar feedback",
+  "search_input.empty": "No results found. Try different search terms.",
+  "search_input.placeholder": "Search",
+  "image.error_loading": "An error occurred while trying to load the image.",
+  "api_reference_sidebar_filter_clear": "Clear all",
+  "api_reference_sidebar_filter": "Filter by"
 }

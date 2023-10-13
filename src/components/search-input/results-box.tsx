@@ -15,6 +15,9 @@ import { Box, Flex, IconCaret, Text } from '@vtex/brand-ui'
 import { getBreadcrumbs, getIcon, getRelativeURL } from 'utils/search-utils'
 import CustomHighlight from './customHighlight'
 import styles from './styles'
+import { useContext } from 'react'
+import { LibraryContext } from 'utils/context/libraryContext'
+import { messages } from 'utils/get-message'
 
 interface HitProps {
   hit: Hit
@@ -70,6 +73,7 @@ const HitWithInsights = connectHitInsights(aa)(Hit)
 const HitsBox = connectStateResults<HitsBoxProps>(
   ({ searchState, searchResults, changeFocus }) => {
     const router = useRouter()
+    const { locale } = useContext(LibraryContext)
 
     const seeAllSubmit = (keyword: string) => {
       router.push({
@@ -118,7 +122,7 @@ const HitsBox = connectStateResults<HitsBoxProps>(
               )}
               {!searchResults.hits.length && (
                 <Flex sx={styles.noResults}>
-                  <Text>No results found. Try different search terms.</Text>
+                  <Text>{messages[locale]['search_input.empty']}</Text>
                 </Flex>
               )}
             </Box>

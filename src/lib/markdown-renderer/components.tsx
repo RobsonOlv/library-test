@@ -22,6 +22,7 @@ import mermaidInit from 'utils/mermaidInit'
 
 import { Component, ObservableHeadingProps } from './index.types'
 import styles from './styles.module.css'
+import { messages } from 'utils/get-message'
 
 mermaidInit()
 
@@ -128,13 +129,14 @@ const MermaidDiagram = ({ node, ...props }: Component) => {
 
 const ImageComponent = ({ node, ...props }: Component) => {
   const [srcHasError, setSrcHasError] = useState(false)
+  const { locale } = useContext(LibraryContext)
   const regularImg = (
     // eslint-disable-next-line @next/next/no-img-element
     <img src={props.src} alt={props.alt} onError={() => setSrcHasError(true)} />
   )
   const errorMessage = (
     <blockquote className={`${styles.blockquote} ${styles.blockquoteWarning}`}>
-      {'ErrorMessage'} {props.src}
+      {messages[locale]['image.error_loading']} {props.src}
     </blockquote>
   )
 
