@@ -3,6 +3,7 @@ import {
   Dispatch,
   MutableRefObject,
   SetStateAction,
+  useContext,
   useEffect,
   useRef,
   useState,
@@ -11,6 +12,8 @@ import useClickOutside from 'utils/hooks/useClickOutside'
 
 import { arrowDirectionStyle, modalPositionStyle } from './functions'
 import styles from './styles'
+import { messages } from 'utils/get-message'
+import { LibraryContext } from 'utils/context/libraryContext'
 export interface ModalProps {
   modalOpen: boolean
   liked?: boolean
@@ -51,6 +54,7 @@ const FeedBackModal = ({
   const cardRef = useRef<HTMLDivElement>()
   const { body, documentElement } = document
   const [comment, setComment] = useState('')
+  const { locale } = useContext(LibraryContext)
 
   const closeModal = () => {
     const feedback = modalState?.liked
@@ -88,7 +92,9 @@ const FeedBackModal = ({
           }
           data-cy="feedback-modal"
         >
-          <Text sx={styles.title}>Leave a comment (optional)</Text>
+          <Text sx={styles.title}>
+            {messages[locale]['feedback_modal.title']}
+          </Text>
           <Textarea
             id="feedback-modal-input"
             sx={styles.textarea}
@@ -102,7 +108,7 @@ const FeedBackModal = ({
             sx={styles.button}
             variant="secondary"
           >
-            Send Feedback
+            {messages[locale]['feedback_modal.button']}
           </Button>
         </Box>
         <FeedBackModalArrow

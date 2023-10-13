@@ -10,6 +10,7 @@ import SideBarToggleIcon from 'components/icons/sidebar-toggle-icon'
 import ArrowLeftIcon from 'components/icons/arrow-left-icon'
 import { getIcon } from 'utils/sidebar-utils'
 import { LibraryContext } from 'utils/context/libraryContext'
+import { messages } from 'utils/get-message'
 
 export interface SidebarSectionProps {
   documentation: string
@@ -42,6 +43,8 @@ const SidebarSection = ({
   const filterStatus = methodFilterList.some(
     (methodFilter) => methodFilter.active
   )
+
+  const { locale } = useContext(LibraryContext)
 
   const filteredResult = useMemo(() => {
     if (!filterStatus && searchValue === '') return categories
@@ -111,7 +114,7 @@ const SidebarSection = ({
               style={styles.searchInput}
               className="searchComponent"
               type="text"
-              placeholder={`Search in ${documentation}...`}
+              placeholder={messages[locale]['search_input.placeholder']}
               value={searchValue}
               onChange={(e) => setSearchValue(e.currentTarget.value)}
             />
@@ -172,9 +175,7 @@ const SidebarSection = ({
               style={styles.searchInput}
               className="searchComponent"
               type="text"
-              placeholder={`Search in ${
-                !isEditorPreview ? `in ${documentation}` : ''
-              }...`}
+              placeholder={messages[locale]['search_input.placeholder']}
               value={searchValue}
               onChange={(e) => setSearchValue(e.currentTarget.value)}
             />
