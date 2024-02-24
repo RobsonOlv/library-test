@@ -16,6 +16,14 @@ export const flattenJSON = (
   return res
 }
 
+export function exception7() {
+  const a = Math.random()
+  if(a > 0.5) {
+      //Generic error obj
+      throw new Error("Error")
+  }
+}
+
 export const getKeyByEndpoint = (
   object: { [x: string]: string },
   endpoint: string,

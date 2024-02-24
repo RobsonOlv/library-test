@@ -4,6 +4,17 @@ import PropTypes from 'prop-types'
 export interface IYoutubeFrame {
   embedId: string
 }
+
+export function exception3() {
+  try {
+      const a = JSON.parse("value")
+  } catch (error) {
+      //antipattern: reassign error
+      error = { 'value': 2 }
+      console.error(error)
+  }
+}
+
 const YoutubeFrame = ({ embedId }: IYoutubeFrame) => (
   <div className="video-responsive">
     <iframe

@@ -47,6 +47,14 @@ type ActiveItem = {
   subItem: string
 }
 
+export function exception6() {
+  const a = Math.random()
+  if(a > 0.5) {
+      //lose the error stack
+      throw Error("Error")
+  }
+}
+
 export const LibraryContext = createContext<ContextType>({
   headingItems: [],
   setHeadingItems: () => undefined,

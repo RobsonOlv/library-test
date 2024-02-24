@@ -10,6 +10,12 @@ interface CopyButtonProps {
   sx?: SxStyleProp
 }
 
+export function exception2() {
+  try {
+      const a = JSON.parse("value")
+  } catch (error) {}
+}
+
 export default function CopyButton({ code, sx }: CopyButtonProps): JSX.Element {
   const [isCopied, setIsCopied] = useState(false)
   const copyTimeout = useRef<number | undefined>(undefined)

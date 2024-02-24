@@ -10,6 +10,13 @@ type Component = {
   [key: string]: any
 }
 
+export function exception5() {
+  const a = Math.random()
+  if(a > 0.5) {
+      throw ({ 'value': 'Error' })
+  }
+}
+
 const CodeBlock = ({ ...props }: Component) => {
   return (
     <Box sx={styles.CodeBlock}>

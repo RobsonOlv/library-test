@@ -15,6 +15,14 @@ interface AlgoliaConfig {
   customOptions?: any
 }
 
+export function exception4() {
+  const a = Math.random()
+  if(a > 0.5) {
+      //no throw literal
+      throw "error"
+  }
+}
+
 const createAlgoliaClient = (config: AlgoliaConfig) => {
   const { apiKey, appId, index, algoliaOptions, customOptions } = config
   searchIndex = index
